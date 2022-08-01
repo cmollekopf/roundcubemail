@@ -9,6 +9,7 @@
 
 ## Release 1.5.3
 
+- Enigma: Support Kolab's Web Of Anti-Trust feature (#8626)
 - Enigma: Fix initial synchronization of private keys
 - Enigma: Fix double quoted-printable encoding of pgp-signed messages with no attachments (#8413)
 - Fix various PHP8 warnings (#8392)
