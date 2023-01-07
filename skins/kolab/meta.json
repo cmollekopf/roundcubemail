@@ -1,0 +1,15 @@
+{
+	"name": "Kolab (Responsive Version)",
+	"author": "Kolab Systems AG, Zurich, Switzerland",
+	"license": "GNU Affero General Public License",
+	"license-url": "http://www.gnu.org/licenses/agpl.html",
+	"extends": "elastic",
+	"config": {
+		"pwa_theme_color": "#3a444e",
+		"pwa_tile_color": "#3a444e",
+		"pwa_pinned_tab_color": "#f4c200",
+		"pwa_name": "Kolab Groupware",
+		"pwa_short_name": "Kolab",
+		"pwa_description": "Free and Open Source Groupware Server"
+	}
+}
