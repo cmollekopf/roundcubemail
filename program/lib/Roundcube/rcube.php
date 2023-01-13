@@ -224,7 +224,7 @@ class rcube
             $this->caches[$name] = rcube_cache::factory($type, $userid, $name, $ttl, $packed, $indexed);
         }
 
-        return $this->caches[$name];
+        return $this->caches[$name] ?? null;
     }
 
     /**
@@ -833,7 +833,7 @@ class rcube
             $lang = $rcube_language_aliases[$lang];
         }
         // try the first two chars
-        else if (!isset($rcube_languages[$lang])) {
+        else if ($lang && !isset($rcube_languages[$lang])) {
             $short = substr($lang, 0, 2);
 
             // check if we have an alias for the short language code
@@ -968,7 +968,7 @@ class rcube
     public function get_secure_url_token($generate = false)
     {
         if ($len = $this->config->get('use_secure_urls')) {
-            if (empty($_SESSION['secure_token']) && $generate) {
+            if (empty($_SESSION['secure_token'] ?? null) && $generate) {
                 // generate x characters long token
                 $length = $len > 1 ? $len : 16;
                 $token  = rcube_utils::random_bytes($length);
@@ -978,7 +978,7 @@ class rcube
                 $_SESSION['secure_token'] = $plugin['value'];
             }
 
-            return $_SESSION['secure_token'];
+            return $_SESSION['secure_token'] ?? false;
         }
 
         return false;

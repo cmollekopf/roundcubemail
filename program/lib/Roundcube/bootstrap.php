@@ -321,10 +321,13 @@ function array_first($array)
  * @param bool   $css_id       The result may be used as CSS identifier
  * @param string $replace_with Replacement character
  *
- * @return string Clean string
+ * @return string|null Clean string or null if $str is null
  */
 function asciiwords($str, $css_id = false, $replace_with = '')
 {
+    if ($str == null) {
+        return null;
+    }
     $allowed = 'a-z0-9\_\-' . (!$css_id ? '\.' : '');
     return preg_replace("/[^$allowed]+/i", $replace_with, $str);
 }
