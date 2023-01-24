@@ -727,8 +727,8 @@ class rcube
      */
     public function read_localization($dir, $lang = null)
     {
-        if ($lang == null) {
-            $lang = $_SESSION['language'];
+        if ($lang == null && isset($_SESSION)) {
+            $lang = $_SESSION['language'] ?? null;
         }
         $langs  = array_unique(['en_US', $lang]);
         $locdir = slashify($dir);
