@@ -1,8 +1,8 @@
 CREATE TABLE `collected_addresses` (
  `address_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
  `changed` datetime NOT NULL DEFAULT '1000-01-01 00:00:00',
- `name` varchar(255) NOT NULL DEFAULT '',
- `email` varchar(255) NOT NULL,
+ `name` varchar(191) NOT NULL DEFAULT '',
+ `email` varchar(191) NOT NULL,
  `user_id` int(10) UNSIGNED NOT NULL,
  `type` int(10) UNSIGNED NOT NULL,
  PRIMARY KEY(`address_id`),
