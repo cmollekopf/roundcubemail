@@ -26,7 +26,7 @@ if (window.rcmail) {
         rcmail.enable_command('managesieve-create', true);
     }
 
-    if (rcmail.env.task == 'mail' || rcmail.env.action.startsWith('plugin.managesieve')) {
+    if (rcmail.env.task == 'mail' || (rcmail.env.action && rcmail.env.action.startsWith('plugin.managesieve'))) {
       // Create layer for form tips
       if (!rcmail.env.framed) {
         rcmail.env.ms_tip_layer = $('<div id="managesieve-tip" class="popupmenu"></div>');
@@ -46,7 +46,7 @@ if (window.rcmail) {
     rcmail.register_command('plugin.managesieve-setget', function() { rcmail.managesieve_setget() });
     rcmail.register_command('plugin.managesieve-seteditraw', function() { rcmail.managesieve_seteditraw() });
 
-    if (rcmail.env.action.startsWith('plugin.managesieve')) {
+    if (rcmail.env.action && rcmail.env.action.startsWith('plugin.managesieve')) {
       if (rcmail.gui_objects.sieveform) {
         rcmail.enable_command('plugin.managesieve-save', true);
         sieve_form_init();
