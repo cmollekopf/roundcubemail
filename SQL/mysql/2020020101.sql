@@ -26,15 +26,6 @@ ALTER TABLE `searches` ROW_FORMAT=DYNAMIC;
 ALTER TABLE `filestore` ROW_FORMAT=DYNAMIC;
 ALTER TABLE `system` ROW_FORMAT=DYNAMIC;
 
-
-ALTER TABLE `users` CHANGE `username` `username` varchar(128) BINARY NOT NULL;
-ALTER TABLE `cache` CHANGE `cache_key` `cache_key` varchar(128) BINARY NOT NULL;
-ALTER TABLE `cache_shared` CHANGE `cache_key` `cache_key` varchar(191) BINARY NOT NULL;
-ALTER TABLE `cache_index` CHANGE `mailbox` `mailbox` varchar(191) BINARY NOT NULL;
-ALTER TABLE `cache_thread` CHANGE `mailbox` `mailbox` varchar(191) BINARY NOT NULL;
-ALTER TABLE `cache_messages` CHANGE `mailbox` `mailbox` varchar(191) BINARY NOT NULL;
-
-
 ALTER TABLE `session` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE `users` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE `cache` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -49,6 +40,13 @@ ALTER TABLE `dictionary` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicod
 ALTER TABLE `searches` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE `filestore` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE `system` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+ALTER TABLE `users` CHANGE `username` `username` varchar(128) BINARY NOT NULL;
+ALTER TABLE `cache` CHANGE `cache_key` `cache_key` varchar(128) BINARY NOT NULL;
+ALTER TABLE `cache_shared` CHANGE `cache_key` `cache_key` varchar(255) BINARY NOT NULL;
+ALTER TABLE `cache_index` CHANGE `mailbox` `mailbox` varchar(255) BINARY NOT NULL;
+ALTER TABLE `cache_thread` CHANGE `mailbox` `mailbox` varchar(255) BINARY NOT NULL;
+ALTER TABLE `cache_messages` CHANGE `mailbox` `mailbox` varchar(255) BINARY NOT NULL;
 
 ALTER TABLE `cache`
   ADD CONSTRAINT `user_id_fk_cache` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
