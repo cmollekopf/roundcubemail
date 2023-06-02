@@ -58,8 +58,12 @@
     background-size: 60% !important;
     background-blend-mode: unset !important;
 
-    &:before {
+    html:not(.dark-mode) &:before {
         background: rgba(255, 255, 255, 0.75) !important;
+    }
+
+    html.dark-mode & {
+        background-blend-mode: soft-light !important;
     }
 }
 
