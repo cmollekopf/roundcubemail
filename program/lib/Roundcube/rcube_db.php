@@ -350,6 +350,16 @@ class rcube_db
     }
 
     /**
+     * Getter for error code
+     *
+     * @return array [SQLSTATE error code, driver specific error code, driver specific error message]
+     */
+    public function error_info()
+    {
+        return $this->dbh->errorInfo();
+    }
+
+    /**
      * Connection state checker
      *
      * @return bool True if in connected state
