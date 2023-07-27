@@ -1915,7 +1915,7 @@ class rcube_imap extends rcube_storage
      */
     public function get_message($uid, $folder = null)
     {
-        if (!strlen($folder)) {
+        if ($folder === null || !strlen($folder)) {
             $folder = $this->folder;
         }
 

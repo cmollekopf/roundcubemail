@@ -320,7 +320,7 @@ class rcube_mime
     private static function parse_address_list($str, $decode = true, $fallback = null)
     {
         // remove any newlines and carriage returns before
-        $str = preg_replace('/\r?\n(\s|\t)?/', ' ', $str);
+        $str = $str === null ? null : preg_replace('/\r?\n(\s|\t)?/', ' ', $str);
 
         // extract list items, remove comments
         $str = self::explode_header_string(',;', $str, true);
