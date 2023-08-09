@@ -78,9 +78,9 @@ class rcube_user
         }
 
         if (!empty($sql_arr)) {
-            $this->ID       = (int) $sql_arr['user_id'];
+            $this->ID       = (int) $sql_arr['user_id'] ?? 0;
             $this->data     = $sql_arr;
-            $this->language = $sql_arr['language'];
+            $this->language = $sql_arr['language'] ?? null;
         }
     }
 
